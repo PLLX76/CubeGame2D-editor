@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources\Config">
+      <UniqueIdentifier>{3e2b4241-4876-4d59-af18-a15b7eb66d89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\Levels">
+      <UniqueIdentifier>{0acabf83-47fe-406a-8be6-d0e26892b63e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\police">
+      <UniqueIdentifier>{35f3574e-adaf-4e49-a9b8-6f59619ea31e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\save">
+      <UniqueIdentifier>{fd82dce4-70fa-4a17-b053-3e82473f0a9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\sound">
+      <UniqueIdentifier>{d5c61afa-3a79-479e-8df6-6460eb4331ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\texture">
+      <UniqueIdentifier>{cc5205be-d1a0-4a31-872f-6354ed918988}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Levels.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="portal.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBox.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resourcespack\default\Config\ligne.txt">
+      <Filter>Fichiers de ressources\Config</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level1.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level1portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level2.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level2portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level3.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level3portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level4.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level4portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level5.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level5portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level6.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level6portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level7.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level7portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level8.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level8portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level9.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level9portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level10.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level10portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level11.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level11portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level12.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level12portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level13.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level13portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level14.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level14portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level15.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level15portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level16.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level16portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level17.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level17portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level18.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level18portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level19.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level19portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level20.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level20portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level21.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level21portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level22.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level22portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level23.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level23portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level24.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level24portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level25.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level25portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level26.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level26portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level27.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level27portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level28.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level28portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level29.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level29portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level30.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level30portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level31.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\Levels\level31portal.txt">
+      <Filter>Fichiers de ressources\Levels</Filter>
+    </Text>
+    <Text Include="resourcespack\default\save\save.txt">
+      <Filter>Fichiers de ressources\save</Filter>
+    </Text>
+    <Text Include="resourcespack\default\police\OFL.txt">
+      <Filter>Fichiers de ressources\police</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resourcespack\default\Config\window.ini">
+      <Filter>Fichiers de ressources\Config</Filter>
+    </None>
+    <None Include="resourcespack\default\sound\heal.ogg">
+      <Filter>Fichiers de ressources\sound</Filter>
+    </None>
+    <None Include="resourcespack\default\sound\hurt.ogg">
+      <Filter>Fichiers de ressources\sound</Filter>
+    </None>
+    <None Include="resourcespack\default\sound\levelup.ogg">
+      <Filter>Fichiers de ressources\sound</Filter>
+    </None>
+    <None Include="resourcespack\default\sound\portal.ogg">
+      <Filter>Fichiers de ressources\sound</Filter>
+    </None>
+    <None Include="resourcespack\default\sound\stone2.ogg">
+      <Filter>Fichiers de ressources\sound</Filter>
+    </None>
+    <None Include="resourcespack\default\sound\tnt.ogg">
+      <Filter>Fichiers de ressources\sound</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resourcespack\default\texture\block.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\block_casse.jpg">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\champi.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\champignon.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\coueur.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\coueur_demi.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\coueur_plein.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\fin.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\fleche-droite.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\fleche-droite-no.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\fleche-gauche.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\fleche-gauche-no.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\ladders.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\mechant.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\piege.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\portal.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\TNT.jpg">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\bouton.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="resourcespack\default\mechant.ico">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="resourcespack\default\mechant.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="resourcespack\default\player.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\fantome-1.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\fantome-2.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\air.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\save.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+    <Image Include="resourcespack\default\texture\souris.png">
+      <Filter>Fichiers de ressources\texture</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resourcespack\default\police\police.ttf">
+      <Filter>Fichiers de ressources\police</Filter>
+    </Font>
+  </ItemGroup>
+</Project>

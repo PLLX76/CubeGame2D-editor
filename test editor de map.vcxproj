@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{2a0319b2-7e1e-4b1a-ae86-03b6b942908a}</ProjectGuid>
+    <RootNamespace>testeditordemap</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Videos\Paul D\C C++\Sfml\test editor de map\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Videos\Paul D\C C++\Sfml\test editor de map\lib;$(LibraryPath)</LibraryPath>
+    <PublicIncludeDirectories>D:\Videos\Paul D\C C++\Sfml\test editor de map\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <TargetName>GameCube2D map editor</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\Videos\Paul D\C C++\Sfml\test editor de map\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Videos\Paul D\C C++\Sfml\test editor de map\lib;$(LibraryPath)</LibraryPath>
+    <PublicIncludeDirectories>D:\Videos\Paul D\C C++\Sfml\test editor de map\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <OutDir>D:\Videos\Paul D\C C++\realese\Sfml\editor de jeu\</OutDir>
+    <TargetName>GameCube2D map editor</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Levels.h" />
+    <ClInclude Include="portal.h" />
+    <ClInclude Include="TextBox.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resourcespack\default\Config\ligne.txt" />
+    <Text Include="resourcespack\default\Levels\level.txt" />
+    <Text Include="resourcespack\default\Levels\level1.txt" />
+    <Text Include="resourcespack\default\Levels\level10.txt" />
+    <Text Include="resourcespack\default\Levels\level10portal.txt" />
+    <Text Include="resourcespack\default\Levels\level11.txt" />
+    <Text Include="resourcespack\default\Levels\level11portal.txt" />
+    <Text Include="resourcespack\default\Levels\level12.txt" />
+    <Text Include="resourcespack\default\Levels\level12portal.txt" />
+    <Text Include="resourcespack\default\Levels\level13.txt" />
+    <Text Include="resourcespack\default\Levels\level13portal.txt" />
+    <Text Include="resourcespack\default\Levels\level14.txt" />
+    <Text Include="resourcespack\default\Levels\level14portal.txt" />
+    <Text Include="resourcespack\default\Levels\level15.txt" />
+    <Text Include="resourcespack\default\Levels\level15portal.txt" />
+    <Text Include="resourcespack\default\Levels\level16.txt" />
+    <Text Include="resourcespack\default\Levels\level16portal.txt" />
+    <Text Include="resourcespack\default\Levels\level17.txt" />
+    <Text Include="resourcespack\default\Levels\level17portal.txt" />
+    <Text Include="resourcespack\default\Levels\level18.txt" />
+    <Text Include="resourcespack\default\Levels\level18portal.txt" />
+    <Text Include="resourcespack\default\Levels\level19.txt" />
+    <Text Include="resourcespack\default\Levels\level19portal.txt" />
+    <Text Include="resourcespack\default\Levels\level1portal.txt" />
+    <Text Include="resourcespack\default\Levels\level2.txt" />
+    <Text Include="resourcespack\default\Levels\level20.txt" />
+    <Text Include="resourcespack\default\Levels\level20portal.txt" />
+    <Text Include="resourcespack\default\Levels\level21.txt" />
+    <Text Include="resourcespack\default\Levels\level21portal.txt" />
+    <Text Include="resourcespack\default\Levels\level22.txt" />
+    <Text Include="resourcespack\default\Levels\level22portal.txt" />
+    <Text Include="resourcespack\default\Levels\level23.txt" />
+    <Text Include="resourcespack\default\Levels\level23portal.txt" />
+    <Text Include="resourcespack\default\Levels\level24.txt" />
+    <Text Include="resourcespack\default\Levels\level24portal.txt" />
+    <Text Include="resourcespack\default\Levels\level25.txt" />
+    <Text Include="resourcespack\default\Levels\level25portal.txt" />
+    <Text Include="resourcespack\default\Levels\level26.txt" />
+    <Text Include="resourcespack\default\Levels\level26portal.txt" />
+    <Text Include="resourcespack\default\Levels\level27.txt" />
+    <Text Include="resourcespack\default\Levels\level27portal.txt" />
+    <Text Include="resourcespack\default\Levels\level28.txt" />
+    <Text Include="resourcespack\default\Levels\level28portal.txt" />
+    <Text Include="resourcespack\default\Levels\level29.txt" />
+    <Text Include="resourcespack\default\Levels\level29portal.txt" />
+    <Text Include="resourcespack\default\Levels\level2portal.txt" />
+    <Text Include="resourcespack\default\Levels\level3.txt" />
+    <Text Include="resourcespack\default\Levels\level30.txt" />
+    <Text Include="resourcespack\default\Levels\level30portal.txt" />
+    <Text Include="resourcespack\default\Levels\level31.txt" />
+    <Text Include="resourcespack\default\Levels\level31portal.txt" />
+    <Text Include="resourcespack\default\Levels\level3portal.txt" />
+    <Text Include="resourcespack\default\Levels\level4.txt" />
+    <Text Include="resourcespack\default\Levels\level4portal.txt" />
+    <Text Include="resourcespack\default\Levels\level5.txt" />
+    <Text Include="resourcespack\default\Levels\level5portal.txt" />
+    <Text Include="resourcespack\default\Levels\level6.txt" />
+    <Text Include="resourcespack\default\Levels\level6portal.txt" />
+    <Text Include="resourcespack\default\Levels\level7.txt" />
+    <Text Include="resourcespack\default\Levels\level7portal.txt" />
+    <Text Include="resourcespack\default\Levels\level8.txt" />
+    <Text Include="resourcespack\default\Levels\level8portal.txt" />
+    <Text Include="resourcespack\default\Levels\level9.txt" />
+    <Text Include="resourcespack\default\Levels\level9portal.txt" />
+    <Text Include="resourcespack\default\police\OFL.txt" />
+    <Text Include="resourcespack\default\save\save.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resourcespack\default\Config\window.ini" />
+    <None Include="resourcespack\default\sound\heal.ogg" />
+    <None Include="resourcespack\default\sound\hurt.ogg" />
+    <None Include="resourcespack\default\sound\levelup.ogg" />
+    <None Include="resourcespack\default\sound\portal.ogg" />
+    <None Include="resourcespack\default\sound\stone2.ogg" />
+    <None Include="resourcespack\default\sound\tnt.ogg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resourcespack\default\bouton.png" />
+    <Image Include="resourcespack\default\mechant.ico" />
+    <Image Include="resourcespack\default\mechant.png" />
+    <Image Include="resourcespack\default\player.png" />
+    <Image Include="resourcespack\default\texture\air.png" />
+    <Image Include="resourcespack\default\texture\block.png" />
+    <Image Include="resourcespack\default\texture\block_casse.jpg" />
+    <Image Include="resourcespack\default\texture\champi.png" />
+    <Image Include="resourcespack\default\texture\champignon.png" />
+    <Image Include="resourcespack\default\texture\coueur.png" />
+    <Image Include="resourcespack\default\texture\coueur_demi.png" />
+    <Image Include="resourcespack\default\texture\coueur_plein.png" />
+    <Image Include="resourcespack\default\texture\fantome-1.png" />
+    <Image Include="resourcespack\default\texture\fantome-2.png" />
+    <Image Include="resourcespack\default\texture\fin.png" />
+    <Image Include="resourcespack\default\texture\fleche-droite-no.png" />
+    <Image Include="resourcespack\default\texture\fleche-droite.png" />
+    <Image Include="resourcespack\default\texture\fleche-gauche-no.png" />
+    <Image Include="resourcespack\default\texture\fleche-gauche.png" />
+    <Image Include="resourcespack\default\texture\ladders.png" />
+    <Image Include="resourcespack\default\texture\mechant.png" />
+    <Image Include="resourcespack\default\texture\piege.png" />
+    <Image Include="resourcespack\default\texture\portal.png" />
+    <Image Include="resourcespack\default\texture\save.png" />
+    <Image Include="resourcespack\default\texture\souris.png" />
+    <Image Include="resourcespack\default\texture\TNT.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="resourcespack\default\police\police.ttf" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
