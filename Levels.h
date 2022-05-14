@@ -43,6 +43,8 @@ std::vector<std::vector<int>> tapmapportal = {
 
 #pragma endregion
 
+std::vector<sf::RectangleShape> vecbox;
+
 int heightmap = 14;
 int withtmap = 15;
 

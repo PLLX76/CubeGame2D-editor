@@ -1,4 +1,3 @@
-#pragma comment(linker, "/subsystem:windows /ENTRY:mainCRTStartup")
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
@@ -28,7 +27,7 @@ sf::Sprite sprite_player;
 sf::Font font;
 std::string font_path = "police.ttf";
 
-int speed = 2;
+int speed = 3;
 
 int taille = 64;
 
@@ -47,8 +46,6 @@ std::string title = "GameCube2D";
 int resolution = 32;
 
 sf::RectangleShape coeur;
-
-std::vector<sf::RectangleShape> vecbox;
 
 bool fullscreen;
 
@@ -77,7 +74,8 @@ sf::Texture block_texture,
 			depart_texture,
 			fin_texture,
 			TNT_texture,
-			air_texture;
+			air_texture,
+			restart_texture;
 		
 sf::Texture coeur_texture;
 
@@ -89,12 +87,17 @@ sf::Texture fleche_droite,
 			fleche_droite_no,
 			fleche_gauche_no;
 
+sf::Texture item_heal_texture;
+sf::Texture item_up_texture;
+sf::Texture item_speed_texture;
+sf::Texture item_sword_texture;
 #pragma endregion variable textures des blocks
 
 #pragma region Fonction
 
 void gestion_clavier();
 void reset_vetbox(bool position_reset);
+//void reset_in_vetbox(int x, int y);
 void config();
 void charge();
 void gestion_mannette(sf::Event event);
@@ -120,9 +123,13 @@ sf::RectangleShape  block_rect,
 					save_rect,
 					souris_rect,
 					select_rect,
-					select_portal_rect;
+					select_portal_rect,
+					restart_rect,
+					item_sword_rect,
+					item_speed_rect,
+					item_up_rect,
+					item_heal_rect;
 #pragma endregion
-
 
 //site color https://htmlcolorcodes.com/fr/
 
@@ -138,13 +145,13 @@ int main()
 	}
 	if (!fullscreen) app.create(sf::VideoMode(screenW, screenH, resolution), title, sf::Style::Default);
 	app.setFramerateLimit(60);
-	if (!icon.loadFromFile(("resourcespack/" + resourcespack + "/mechant.png").c_str())) std::cout << "error icon ligne 127" << std::endl;
+	if (!icon.loadFromFile(("resourcespack/" + resourcespack + "/mechant.png").c_str())) if (!icon.loadFromFile("resourcespack/default/mechant.png")) std::cout << "error icon ligne 127" << std::endl;
 	app.setIcon(500, 500, icon.getPixelsPtr());
 
 #pragma region chargement image
 	if (!block_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/block.png").c_str())) if (!block_texture.loadFromFile("resourcespack/default/texture/block.png")) std::cout << "erreur d'image chargement 'block.png'" << std::endl;
 	if (!block_casse_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/block_casse.jpg").c_str())) if (!block_casse_texture.loadFromFile("resourcespack/default/texture/block_casse.jpg")) std::cout << "erreur d'image chargement 'block_casse.jpg'" << std::endl;
-	if (!TNT_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/TNT.jpg").c_str())) if (!block_casse_texture.loadFromFile("resourcespack/default/texture/TNT.jpg")) std::cout << "erreur d'image chargement 'TNT.jpg'" << std::endl;
+	if (!TNT_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/TNT.jpg").c_str())) if (!TNT_texture.loadFromFile("resourcespack/default/texture/TNT.jpg")) std::cout << "erreur d'image chargement 'TNT.jpg'" << std::endl;
 	if (!champigon_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/champignon.png").c_str())) if (!champigon_texture.loadFromFile("resourcespack/default/texture/champignon.png")) std::cout << "erreur d'image chargement 'champignon.png'" << std::endl;
 	if (!mechant_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/mechant.png").c_str())) if (!mechant_texture.loadFromFile("resourcespack/default/texture/mechant.png")) std::cout << "erreur d'image chargement 'mechant.png'" << std::endl;
 	if (!piege_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/piege.png").c_str())) if (!piege_texture.loadFromFile("resourcespack/default/texture/piege.png")) std::cout << "erreur d'image chargement 'piege.png'" << std::endl;
@@ -157,9 +164,14 @@ int main()
 	if (!fleche_droite_no.loadFromFile(("resourcespack/" + resourcespack + "/texture/fleche-droite-no.png").c_str())) if (!fleche_droite.loadFromFile("resourcespack/default/texture/fleche-droite-no.png")) std::cout << "erreur de chargement d'image 'fleche-droite-no.png'" << std::endl;
 	if (!fleche_gauche_no.loadFromFile(("resourcespack/" + resourcespack + "/texture/fleche-gauche-no.png").c_str())) if (!fleche_gauche.loadFromFile("resourcespack/default/texture/fleche-gauche-no.png")) std::cout << "erreur de chargement d'image 'fleche-gauche-no.png'" << std::endl;
 	if (!coeur_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/coueur_plein.png").c_str())) if (!coeur_texture.loadFromFile("resourcespack/default/texture/coueur_plein.png")) std::cout << "erreur d'image chargement 'coueur_plein.png'" << std::endl;
-	if (!air_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/air.png").c_str())) if (!coeur_texture.loadFromFile("resourcespack/default/texture/air.png")) std::cout << "erreur d'image chargement 'air.png'" << std::endl;
-	if (!save_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/save.png").c_str())) if (!coeur_texture.loadFromFile("resourcespack/default/texture/save.png")) std::cout << "erreur d'image chargement 'save.png'" << std::endl;
-	if (!souris_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/souris.png").c_str())) if (!coeur_texture.loadFromFile("resourcespack/default/texture/souris.png")) std::cout << "erreur d'image chargement 'souris.png'" << std::endl;
+	if (!air_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/air.png").c_str())) if (!air_texture.loadFromFile("resourcespack/default/texture/air.png")) std::cout << "erreur d'image chargement 'air.png'" << std::endl;
+	if (!save_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/save.png").c_str())) if (!save_texture.loadFromFile("resourcespack/default/texture/save.png")) std::cout << "erreur d'image chargement 'save.png'" << std::endl;
+	if (!souris_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/souris.png").c_str())) if (!souris_texture.loadFromFile("resourcespack/default/texture/souris.png")) std::cout << "erreur d'image chargement 'souris.png'" << std::endl;
+	if (!restart_texture.loadFromFile(("resourcespack/" + resourcespack + "/texture/restart.png").c_str())) if (!restart_texture.loadFromFile("resourcespack/default/texture/restart.png")) std::cout << "erreur d'image chargement 'restart.png'" << std::endl;
+	if (!item_heal_texture.loadFromFile(("resourcespack/" + resourcespack + "/item/item_potion.png").c_str())) if (!item_heal_texture.loadFromFile("resourcespack/default/item/item_potion.png")) std::cout << "erreur d'image chargement 'item_potion.png'" << std::endl;
+	if (!item_sword_texture.loadFromFile(("resourcespack/" + resourcespack + "/item/sword.png").c_str())) if (!item_sword_texture.loadFromFile("resourcespack/default/item/sword.png")) std::cout << "erreur d'image chargement 'sword_inverse.png'" << std::endl;
+	if (!item_up_texture.loadFromFile(("resourcespack/" + resourcespack + "/item/Up.png").c_str())) if (!item_up_texture.loadFromFile("resourcespack/default/item/Up.png")) std::cout << "erreur d'image chargement 'Up.png'" << std::endl;
+	if (!item_speed_texture.loadFromFile(("resourcespack/" + resourcespack + "/item/speed.png").c_str())) if (!item_speed_texture.loadFromFile("resourcespack/default/item/speed.png")) std::cout << "erreur d'image chargement 'speed.png'" << std::endl;
 #pragma endregion chargement des texture des block
 
 	reset_vetbox(true);
@@ -261,6 +273,25 @@ int main()
 	select_portal_rect.setOutlineThickness(-5.0f);
 	select_portal_rect.setFillColor(sf::Color::Transparent);
 
+	position.x = sprite_player.getPosition().x + taille / 2 - (screenW / 2);
+	position.y = sprite_player.getPosition().y + taille / 2 + (screenH / 2);
+
+	item_heal_rect.setTexture(&item_heal_texture);
+	item_heal_rect.setSize(sf::Vector2f(50, 50));
+	item_heal_rect.setPosition(position.x + (60) * 1, position.y - 60);
+
+	item_speed_rect.setTexture(&item_speed_texture);
+	item_speed_rect.setSize(sf::Vector2f(50, 50));
+	item_speed_rect.setPosition(position.x + (60) * 2, position.y - 60);
+
+	item_sword_rect.setTexture(&item_sword_texture);
+	item_sword_rect.setSize(sf::Vector2f(50, 50));
+	item_sword_rect.setPosition(position.x + (60) * 3, position.y - 60);
+
+	item_up_rect.setTexture(&item_up_texture);
+	item_up_rect.setSize(sf::Vector2f(50, 50));
+	item_up_rect.setPosition(position.x + (60) * 4, position.y - 60);
+
 	position.x = sprite_player.getPosition().x + taille / 2 + (screenW / 2);
 	position.y = sprite_player.getPosition().y + taille / 2 - (screenH / 2);
 
@@ -299,45 +330,27 @@ int main()
 			}
 		}
 
-#pragma region set Position
+		screenH = app.getSize().y;
+		screenW = app.getSize().x;
 
 		sf::Vector2f position(screenW / 2, screenH / 2);
 		position.x = sprite_player.getPosition().x + taille / 2 - (screenW / 2);
 		position.y = sprite_player.getPosition().y + taille / 2 - (screenH / 2);
 
-		block_rect.setPosition(position.x + 10, position.y);
-		block_casse_rect.setPosition(position.x + 10, position.y + 40 * 1);
-		portal_rect.setPosition(position.x + 10, position.y + (40) * 2);
-		champigon_rect.setPosition(position.x + 10, position.y + (40) * 3);
-		mechant_rect.setPosition(position.x + 10, position.y + (40) * 4);
-		piege_rect.setPosition(position.x + 10, position.y + (40) * 5);
-		echelle_rect.setPosition(position.x + 10, position.y + (40) * 6);
-		depart_rect.setPosition(position.x + 10, position.y + (40) * 7);
-		fin_rect.setPosition(position.x + 10, position.y + (40) * 8);
-		heal_rect.setPosition(position.x + 10, position.y + (40) * 9);
-		TNT_rect.setPosition(position.x + 10, position.y + (40) * 10);
-		air_rect.setPosition(position.x + 10, position.y + (40) * 11);
-		souris_rect.setPosition(position.x + 10, position.y + (40) * 12);
-
-
-		position.x = sprite_player.getPosition().x + taille / 2 + (screenW / 2);
-		position.y = sprite_player.getPosition().y + taille / 2 - (screenH / 2);
-
-		save_rect.setPosition(position.x - 60, position.y);
-
-
-#pragma endregion
-
 		latence(false, 0);
+		view_anim(event);
 
 		if (stage == 1)
 		{	
+			text1.setSelected(true);
+			text1.setPosition({ position.x + 50, position.y + 50 });
 			portal_number = 0;
 
 			app.clear();
 
 			sf::Text text;
 			text.setFont(font);
+			text.setPosition(position);
 			text.setString("quel niveau voulez vous creer / modifier");
 
 			app.draw(text);
@@ -346,24 +359,30 @@ int main()
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 			{
-				std::ifstream ifs(("resourcespack/" + resourcespack + "/Levels/level" + text1.getText() + ".txt").c_str());
+				if (latence_int == 0  && text1.getText() != "")
+				{
+					std::ifstream ifs(("resourcespack/" + resourcespack + "/Levels/level" + text1.getText() + ".txt").c_str());
 
-				text1.setSelected(false);
-				level = stoi(text1.getText());
+					text1.setSelected(false);
+					level = stoi(text1.getText());
 
-				if (ifs.is_open()) { stage = 4;  ChargeLevels(level); ChargePortal(level); reset_vetbox(true); }
-				else stage=2;
-				
-				ifs.close();
-				latence(true, 50);
+					if (ifs.is_open()) { stage = 4;  ChargeLevels(level); ChargePortal(level); reset_vetbox(true); }
+					else stage = 2;
+
+					ifs.close();
+					latence(true, 30);
+				}					
 			}			
 		}
 		else if (stage == 2)
 		{
+			text2.setSelected(true);
+			text2.setPosition({ position.x + 50, position.y + 50 });
 			app.clear();
 
 			sf::Text text;
 			text.setFont(font);
+			text.setPosition(position);
 			text.setString("hauteur");
 
 			app.draw(text);
@@ -372,21 +391,25 @@ int main()
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 			{
-				if (latence_int == 0)
+				if (latence_int == 0 && text2.getText() != "")
 				{
 					text2.setSelected(false);
 					heightmap = stoi(text2.getText());
 					stage = 3;
-					latence(true, 50);
+					latence(true, 30);
 				}
 			}	
 		}
 		else if (stage == 3)
 		{
+			text3.setSelected(true);
+			text3.setPosition({ position.x + 50, position.y + 50 });
+
 			app.clear();
 
 			sf::Text text;
 			text.setFont(font);
+			text.setPosition(position);
 			text.setString("largeur");
 
 			app.draw(text);
@@ -395,7 +418,7 @@ int main()
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 			{
-				if (latence_int == 0)
+				if (latence_int == 0 &&  text3.getText() != "")
 				{
 					text3.setSelected(false);
 					withtmap = stoi(text3.getText());
@@ -451,8 +474,41 @@ int main()
 		}
 		else if (stage == 4)
 		{
+
+#pragma region set Position
+
+		block_rect.setPosition(position.x + 10, position.y);
+		block_casse_rect.setPosition(position.x + 10, position.y + 40 * 1);
+		portal_rect.setPosition(position.x + 10, position.y + (40) * 2);
+		champigon_rect.setPosition(position.x + 10, position.y + (40) * 3);
+		mechant_rect.setPosition(position.x + 10, position.y + (40) * 4);
+		piege_rect.setPosition(position.x + 10, position.y + (40) * 5);
+		echelle_rect.setPosition(position.x + 10, position.y + (40) * 6);
+		depart_rect.setPosition(position.x + 10, position.y + (40) * 7);
+		fin_rect.setPosition(position.x + 10, position.y + (40) * 8);
+		heal_rect.setPosition(position.x + 10, position.y + (40) * 9);
+		TNT_rect.setPosition(position.x + 10, position.y + (40) * 10);
+		air_rect.setPosition(position.x + 10, position.y + (40) * 11);
+		souris_rect.setPosition(position.x + 10, position.y + (40) * 12);
+
+		position.x = sprite_player.getPosition().x + taille / 2 - (screenW / 2);
+		position.y = sprite_player.getPosition().y + taille / 2 + (screenH / 2);
+
+		item_up_rect.setPosition(position.x + (60) * 4, position.y - 60);
+		item_sword_rect.setPosition(position.x + (60) * 3, position.y - 60);
+		item_speed_rect.setPosition(position.x + (60) * 2, position.y - 60);
+		item_heal_rect.setPosition(position.x + (60) * 1, position.y - 60);
+
+		position.x = sprite_player.getPosition().x + taille / 2 + (screenW / 2);
+		position.y = sprite_player.getPosition().y + taille / 2 - (screenH / 2);
+
+		save_rect.setPosition(position.x - 60, position.y);
+		restart_rect.setPosition(position.x - 120,position.y);
+
+
+#pragma endregion
+
 			collision_mouse();
-			view_anim(event);
 
 			gestion_clavier();
 			gestion_mannette(event);
@@ -462,9 +518,8 @@ int main()
 
 			sprite_player.setPosition(px, py);
 
-			
-
-			for (int i = 0; i < vecbox.size(); i++) app.draw(vecbox[i]);
+		
+			for (int i = 0; i < vecbox.size(); i++) { app.draw(vecbox[i]); }
 
 #pragma region Rect draw
 
@@ -483,8 +538,14 @@ int main()
 			app.draw(air_rect);
 			app.draw(souris_rect);
 			app.draw(select_rect);
+			app.draw(item_heal_rect);
+			app.draw(item_speed_rect);
+			app.draw(item_sword_rect);
+			app.draw(item_up_rect);
 			if(selected|| portal) app.draw(select_portal_rect);
 			app.draw(save_rect);
+			app.draw(restart_rect);
+
 #pragma endregion paul est beau
 
 
@@ -498,12 +559,6 @@ int main()
 }
 void view_anim(sf::Event event)
 {
-	if (event.type == sf::Event::Resized)
-	{
-		screenW = event.size.width;
-		screenH = event.size.height;
-	}
-
 	view.reset(sf::FloatRect(0, 0, screenW, screenH));
 	sf::Vector2f position(screenW / 2, screenH / 2);
 	position.x = sprite_player.getPosition().x + taille / 2 - (screenW / 2);
@@ -516,10 +571,8 @@ void collision_mouse() {
 
 	int top = 0;
 	int bottom = top + 50;
-	int left =  sprite_player.getPosition().x + taille / 2 + screenW - sprite_player.getPosition().x + taille / 2 - 50 * 3;
+	int left =  screenW - 60;
 	int right = left + 50;
-
-	std::cout << left << std::endl;
 	
 	if (sf::Mouse::getPosition(app).x >= left && sf::Mouse::getPosition(app).x <= right && sf::Mouse::getPosition(app).y >= top && sf::Mouse::getPosition(app).y <= bottom)
 	{
@@ -562,14 +615,11 @@ void collision_mouse() {
 	else {
 		sf::Vector2f position(screenW / 2, screenH / 2);
 
-		position.x = sprite_player.getPosition().x + taille / 2 - (screenW / 2);
-		position.y = sprite_player.getPosition().y + taille / 2 - (screenH / 2);
-
 		for (int i = 0; i < 13; i++)
 		{
-			int top = position.y + (40 * i) - position.y;
+			int top = (40 * i);
 			int bottom = top + 30;
-			int left = position.x + 10 - position.x;
+			int left =  10;
 			int right = left + 30;
 
 			if (sf::Mouse::getPosition(app).x >= left && sf::Mouse::getPosition(app).x <= right && sf::Mouse::getPosition(app).y >= top && sf::Mouse::getPosition(app).y <= bottom)
@@ -583,6 +633,44 @@ void collision_mouse() {
 					}
 					std::cout << "pen = " << pen << std::endl;
 					pen_is_pressed = true;
+				}
+			}
+		}
+
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				int top = screenH - 60;
+				int bottom = top + 30;
+				int left = 60 + (60) * i;
+				int right = left + 30;
+
+				std::cout << top << std::endl;
+
+				if (sf::Mouse::getPosition(app).x >= left && sf::Mouse::getPosition(app).x <= right && sf::Mouse::getPosition(app).y >= top && sf::Mouse::getPosition(app).y <= bottom)
+				{
+
+					switch (i + 1)
+					{
+					case 1:
+						pen = 50;
+						break;
+					case 2:
+						pen = 53;
+						break;
+					case 3:
+						pen = 51;
+						break;
+					case 4:
+						pen = 52;
+						break;
+					default:
+						break;
+					}
+					std::cout << "pen = " << pen << std::endl;
+					pen_is_pressed = true;
+
 				}
 			}
 		}
@@ -683,6 +771,17 @@ void collision_mouse() {
 					}
 				}
 			}
+			left = screenW - 120;
+			right = left + 50;
+
+			if (sf::Mouse::getPosition(app).x >= left && sf::Mouse::getPosition(app).x <= right && sf::Mouse::getPosition(app).y >= top && sf::Mouse::getPosition(app).y <= bottom)
+			{
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				{
+					stage = 1;
+					latence(true, 30);
+				}
+			}
 		}
 	}
 }
@@ -713,6 +812,8 @@ void gestion_clavier()
 void reset_vetbox(bool position_reset)
 {
 	vecbox.clear();
+	//vecbox.resize(withtmap * heightmap);
+
 	for (int y = 0; y < heightmap; y++)
 	{
 		for (int x = 0; x < withtmap; x++)
@@ -810,6 +911,34 @@ void reset_vetbox(bool position_reset)
 				TNT.setPosition(sf::Vector2f(x * offsetX, y * offsetY));
 				vecbox.push_back(TNT);
 			}
+			if (tapmap[y][x] == 50) {
+				//heal
+				sf::RectangleShape item_heal(sf::Vector2f(offsetX, offsetY));
+				item_heal.setTexture(&item_heal_texture);
+				item_heal.setPosition(sf::Vector2f(x * offsetX, y * offsetY));
+				vecbox.push_back(item_heal);
+			}
+			if (tapmap[y][x] == 51) {
+				//block
+				sf::RectangleShape item_sword(sf::Vector2f(offsetX, offsetY));
+				item_sword.setTexture(&item_sword_texture);
+				item_sword.setPosition(sf::Vector2f(x * offsetX, y * offsetY));
+				vecbox.push_back(item_sword);
+			}
+			if (tapmap[y][x] == 52) {
+				//block
+				sf::RectangleShape item_up(sf::Vector2f(offsetX, offsetY));
+				item_up.setTexture(&item_up_texture);
+				item_up.setPosition(sf::Vector2f(x * offsetX, y * offsetY));
+				vecbox.push_back(item_up);
+			}
+			if (tapmap[y][x] == 53) {
+				//block
+				sf::RectangleShape item_speed(sf::Vector2f(offsetX, offsetY));
+				item_speed.setTexture(&item_speed_texture);
+				item_speed.setPosition(sf::Vector2f(x * offsetX, y * offsetY));
+				vecbox.push_back(item_speed);
+			}
 		}
 	}
 }
@@ -825,7 +954,7 @@ void config()
 		ifs >> screenW >> screenH;
 		ifs >> resolution;
 		ifs >> fullscreen;
-		ifs >> speed;
+		ifs >> string_r;
 		ifs >> string_r;
 		ifs >> resourcespack;
 		ifs >> level;

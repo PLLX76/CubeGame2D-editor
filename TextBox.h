@@ -115,7 +115,16 @@ private:
 	void inputLogic(int charTyped) {
 		// If the key pressed isn't delete, or the two selection keys, then append the text with the char:
 		if (charTyped != DELETE_KEY && charTyped != ENTER_KEY && charTyped != ESCAPE_KEY) {
-			text << static_cast<char>(charTyped);
+			std::ostringstream str;
+			str << static_cast<char>(charTyped);
+			std::cout << text.str().length() << std::endl;
+			if  (str.str() =="1" || str.str() == "2" || str.str() == "3" || str.str() == "4" || str.str() == "5" || str.str() == "6" || str.str() == "7" || str.str() == "8" || str.str() == "9" || str.str() == "0")
+			{
+				if (text.str().length() != 4)
+				{
+					text << static_cast<char>(charTyped);
+				}
+			}	
 		}
 		// If the key is delete, then delete the char:
 		else if (charTyped == DELETE_KEY) {
