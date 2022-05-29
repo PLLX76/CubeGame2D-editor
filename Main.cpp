@@ -299,6 +299,9 @@ int main()
 	save_rect.setSize(sf::Vector2f(50, 50));
 	save_rect.setPosition(position.x - 60, position.y);
 
+	restart_rect.setTexture(&restart_texture);
+	restart_rect.setSize(sf::Vector2f(50, 50));
+
 #pragma endregion
 
 
@@ -522,7 +525,7 @@ int main()
 			for (int i = 0; i < vecbox.size(); i++) { app.draw(vecbox[i]); }
 
 #pragma region Rect draw
-
+			
 			app.draw(block_rect);
 			app.draw(block_casse_rect);
 			app.draw(portal_rect);
